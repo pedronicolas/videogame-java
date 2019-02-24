@@ -45,6 +45,46 @@ public class Punto {
 		setY(y);
 	}
 	
+	public double distancia(Punto punto1, Punto punto2) {
+		double param1 = Math.pow(punto1.getX()-punto2.getX(), 2); 
+		double param2 = Math.pow(punto1.getY()-punto2.getY(), 2);
+		double result = Math.sqrt(param1+param2);
+		return result;
+	}
+	
+	public void incrementoPosicion(Direccion dir) {
+		switch (dir) {
+		case ABAJO:
+			incrementoPosicion(0, -1);
+			break;
+		case ARRIBA:
+			incrementoPosicion(0, 1);
+			break;
+		case IZQUIERDA:
+			incrementoPosicion(-1, 0);
+		case DERECHA:
+			incrementoPosicion(1, 0);
+			break;
+		default:
+			break;
+		}
+	}
+	
+	public Punto mayorDistancia(Punto...punto) {
+	 	
+		Punto puntoOrigen = new Punto();
+	 	double mayorDistancia = distancia(puntoOrigen, punto[0]);
+	 	Punto puntoMayor = punto[0];
+	 	for (int i = 1; i < punto.length; i++) {
+			double distanciaPosible = distancia(puntoOrigen, punto[i]);
+			if(mayorDistancia > distanciaPosible) {
+				mayorDistancia = distanciaPosible;
+				puntoMayor = punto[i];
+			}
+		}
+		return puntoMayor;
+	}
+	
 	
 	
 	

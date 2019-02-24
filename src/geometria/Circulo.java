@@ -6,6 +6,8 @@ public class Circulo {
 	private int radio;
 	private Punto centro;
 	private double perimetro;
+	public static final Punto ORIGEN_COORDENADAS = new Punto();
+	public static final int RADIO_POR_DEFECTO = 5;
 	
 	
 	public int getRadio() {
